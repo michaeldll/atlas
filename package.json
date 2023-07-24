@@ -1,0 +1,24 @@
+{
+  "name": "atlas",
+  "version": "1.0.0",
+  "description": "Makes an atlas AKA spritesheet from a set of images",
+  "main": "src/atlasser.js",
+  "scripts": {
+    "watch": "node ./src/watcher.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeldll/atlas.git"
+  },
+  "author": "michaeldll",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaeldll/atlas/issues"
+  },
+  "homepage": "https://github.com/michaeldll/atlas#readme",
+  "type": "module",
+  "dependencies": {
+    "canvas": "^2.11.2"
+  }
+}
