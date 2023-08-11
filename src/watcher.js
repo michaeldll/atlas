@@ -1,7 +1,7 @@
 import { watch } from 'fs';
 import Atlasser from './atlasser.js';
 
-const path = './sprites/arrow-left/'
+const path = './sprites/arrow-right-down/'
 const name = 'spritesheet'
 
 const atlasser = new Atlasser(path, name, {})
