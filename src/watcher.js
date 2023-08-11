@@ -1,12 +1,10 @@
 import { watch } from 'fs';
 import Atlasser from './atlasser.js';
 
-const path = './sprites/example/'
+const path = './sprites/arrow-left/'
 const name = 'spritesheet'
 
-const atlasser = new Atlasser(path, name, {
-    size: [1024, 1024],
-})
+const atlasser = new Atlasser(path, name, {})
 atlasser.draw()
 
 watch(path, (eventType, fileName) => {

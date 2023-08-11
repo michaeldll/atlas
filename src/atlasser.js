@@ -8,10 +8,9 @@ export default class Atlasser {
     algorithm = 'top-down'
     padding = 0
 
-    constructor(path, name, { algorithm = 'top-down', padding= 0 }) {
+    constructor(path, name, { algorithm = 'left-right', padding = 0 }) {
         this.path = path
         this.name = name
-        this.size = size
         this.algorithm = algorithm
         this.padding = padding
     }
@@ -25,7 +24,7 @@ export default class Atlasser {
         images.forEach((image, index) => {
             images[index] = this.path + "input/" + image;
         });
-        Spritesmith.run({ src: images, algorithm: this.algorithm, padding: this.padding }, (err, result) => {
+        Spritesmith.run({ src: images, algorithm: this.algorithm, padding: this.padding, algorithmOpts: { sort: false } }, (err, result) => {
             // If there was an error, throw it
             if (err) {
                 throw err;
@@ -35,7 +34,7 @@ export default class Atlasser {
 
             // Output the image
             fs.writeFileSync(`${this.path}/output/${this.name}.png`, result.image);
-            
+
             // result.image; // Buffer representation of image
             // result.coordinates; // Object mapping filename to {x, y, width, height} of image
             // result.properties; // Object with metadata about spritesheet {width, height}
