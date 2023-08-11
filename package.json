@@ -19,6 +19,8 @@
   "homepage": "https://github.com/michaeldll/atlas#readme",
   "type": "module",
   "dependencies": {
-    "canvas": "^2.11.2"
+    "canvas": "^2.11.2",
+    "spritesheet-js": "^1.2.8",
+    "spritesmith": "^3.4.1"
   }
 }
