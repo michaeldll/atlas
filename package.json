@@ -4,7 +4,7 @@
   "description": "Makes an atlas AKA spritesheet from a set of images",
   "main": "src/atlasser.js",
   "scripts": {
-    "watch": "node ./src/watcher.js",
+    "generate": "node ./src/watcher.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

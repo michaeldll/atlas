@@ -38,6 +38,15 @@ export default class Atlasser {
             // result.image; // Buffer representation of image
             // result.coordinates; // Object mapping filename to {x, y, width, height} of image
             // result.properties; // Object with metadata about spritesheet {width, height}
+
+            const coordinates = JSON.stringify(result.coordinates, null, 2)
+            const properties = JSON.stringify(result.properties, null, 2)
+
+            // Merge coordinates and properties into one json file
+            // and add a tab before each line for proper formatting
+            const json = "{\n\t\"coordinates\": " + coordinates.replace(/\n/g, "\n\t") + ",\n\t\"properties\": " + properties.replace(/\n/g, "\n\t") + "\n}"
+
+            fs.writeFileSync(`${this.path}/output/${this.name}.json`, json);
         });
     }
 }
