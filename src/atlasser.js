@@ -3,7 +3,7 @@ import fs from 'fs'
 import Spritesmith from "spritesmith"
 
 export default class Atlasser {
-    path = './sprites/cutout/'
+    path = './sprites/example/'
     name = 'spritesheet'
     algorithm = 'top-down'
     padding = 0
@@ -15,11 +15,11 @@ export default class Atlasser {
         this.padding = padding
     }
 
-    draw = () => {
+    generate = () => {
         console.log("Generating spritesheet...");
 
         // Get all images in input folder
-        const images = fs.readdirSync(this.path).filter(file => file.endsWith('.png'))
+        const images = fs.readdirSync(this.path).filter(file => file.endsWith('.png') && file !== `${this.name}.png` && file !== `${this.name}.json`)
         // Add path to each image
         images.forEach((image, index) => {
             images[index] = this.path + image;
@@ -30,28 +30,11 @@ export default class Atlasser {
                 throw err;
             }
 
-            fs.stat(`${this.path}/${this.name}.png`, (err, stats) => {
-                if (stats && stats.size > 0) {
-                    console.log("File exists");
-                    fs.unlink(`${this.path}/${this.name}.png`, () => {
-                        console.log("File deleted");
-                        this.write(result)
-                    })
-                } else {
-                    this.write(result)
-                }
-            });
-            // if(fs.statSync(`${this.path}/${this.name}.png`).size > 0) {
-            // console.log("File exists");
-            // fs.unlink(`${this.path}/${this.name}.png`)
-            // }
-
-            // Output the image
-            // fs.writeFileSync(`${this.path}/${this.name}.png`, result.image);
-
             // result.image; // Buffer representation of image
             // result.coordinates; // Object mapping filename to {x, y, width, height} of image
             // result.properties; // Object with metadata about spritesheet {width, height}
+
+            this.write(result)
         });
     }
 

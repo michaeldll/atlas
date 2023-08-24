@@ -1,11 +1,11 @@
 import { watch } from 'fs';
 import Atlasser from './atlasser.js';
 
-const path = './sprites/cutout/'
+const path = './sprites/example/'
 const name = 'spritesheet'
 
 const atlasser = new Atlasser(path, name, {})
-atlasser.draw()
+atlasser.generate()
 
 watch(path, (eventType, fileName) => {
     if (fileName === `${name}.png` || fileName === `${name}.json`) return
@@ -15,5 +15,5 @@ watch(path, (eventType, fileName) => {
     } else {
         console.log(`${fileName} was updated`);
     }
-    atlasser.draw()
+    atlasser.generate()
 });
