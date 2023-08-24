@@ -1,14 +1,14 @@
 import { watch } from 'fs';
 import Atlasser from './atlasser.js';
 
-const path = './sprites/example/' // Must contain "input" and "output“ subfolders
+const path = './sprites/cutout/'
 const name = 'spritesheet'
 
 const atlasser = new Atlasser(path, name, {})
 atlasser.draw()
 
 watch(path, (eventType, fileName) => {
-    if (name === fileName) return
+    if (fileName === `${name}.png` || fileName === `${name}.json`) return
 
     if (eventType === 'rename') {
         console.log(`${fileName} was added or deleted`);
