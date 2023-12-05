@@ -5,10 +5,10 @@ import Spritesmith from "spritesmith"
 export default class Atlasser {
     path = './sprites/example/'
     name = 'spritesheet'
-    algorithm = 'top-down'
+    algorithm = 'binary-tree' // top-down, left-right, diagonal, alt-diagonal, binary-tree
     padding = 0
 
-    constructor(path, name, { algorithm = 'left-right', padding = 0 }) {
+    constructor(path, name, { algorithm = 'binary-tree', padding = 0 }) {
         this.path = path
         this.name = name
         this.algorithm = algorithm
